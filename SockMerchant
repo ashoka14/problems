@@ -1,0 +1,40 @@
+package problems;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Map;
+
+public class SockMerchant {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int [] arr = {10,20,10,30,20,20,10,20,50};
+		int size = 9;
+		int result = sockPairsCount(size,arr);
+		System.out.println("totalPairCount:"+result);
+
+	}
+
+	private static int sockPairsCount(int size, int[] arr) {
+		Map<Integer,Integer> hmap = new HashMap<>();
+		int counter = 1;
+		int pair = 2;
+		int totalPairCount = 0;
+		for(int i=0; i<size; i++) {
+			if(hmap.containsKey(arr[i])) {
+				int count = hmap.get(arr[i]);
+				if(count == pair) {
+					hmap.put(arr[i], counter);					
+				}else {
+					hmap.put(arr[i], ++count);
+					totalPairCount++;
+				}
+			}else {
+				hmap.put(arr[i], counter);
+			}
+		}
+		return totalPairCount;
+	}
+
+}
