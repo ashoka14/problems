@@ -1,0 +1,22 @@
+public static int countNonUnique(List<Integer> numbers) {
+    // Write your code here
+        int unique = 0;
+        Map<Integer,Integer> hmap = new HashMap<>();
+        for (Integer integer : numbers) {
+            if(hmap.containsKey(integer)){
+                //unique++;
+                int val = hmap.get(integer);
+                hmap.put(integer, ++val);
+            } else{
+                hmap.put(integer,1);
+            }
+        }
+        for (Map.Entry<Integer,Integer> entry : hmap.entrySet()) {
+            if(entry.getValue()>1){
+                unique++;
+            }
+        }
+        return unique;
+    }
+
+}
