@@ -10,3 +10,23 @@ for (int i = 1; i < array.length; i++) {
     }  
     return maxSum;  
 }
+=============Deleting subStrings
+
+public static int maxMoves(String s, String t) {
+    // Write your code here
+        int count = 0,i;
+
+        while(true)
+        {
+            if(s.contains(t))
+        {
+            i = s.indexOf(t);
+            s = s.substring(0,i) + s.substring(i + t.length());
+        }
+            else break;
+
+            ++count;
+        }
+
+        return count;
+    }
