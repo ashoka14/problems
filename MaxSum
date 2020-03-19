@@ -1,5 +1,8 @@
-public int FindGreatestSumOfSubArray(int[] array) { if(array.length==0) return 0; int maxSum = array[0]; 
-int arr = array[0]; 
+// 1. Max Sum
+public int FindGreatestSumOfSubArray(int[] array) {
+if(array.length==0) return 0;
+int maxSum = array[0];
+int arr = array[0];
 for (int i = 1; i < array.length; i++) {
         if (arr < 0) {  
             arr = array[i];  
@@ -10,23 +13,3 @@ for (int i = 1; i < array.length; i++) {
     }  
     return maxSum;  
 }
-=============Deleting subStrings
-
-public static int maxMoves(String s, String t) {
-    // Write your code here
-        int count = 0,i;
-
-        while(true)
-        {
-            if(s.contains(t))
-        {
-            i = s.indexOf(t);
-            s = s.substring(0,i) + s.substring(i + t.length());
-        }
-            else break;
-
-            ++count;
-        }
-
-        return count;
-    }
